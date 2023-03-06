@@ -4,6 +4,7 @@ import { Route, RouterModule } from '@angular/router';
 import { LivroModule } from '../modules/livro/livro.module';
 
 import { AppComponent } from './app.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Route[] = [
   {
@@ -19,7 +20,8 @@ const routes: Route[] = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    LivroModule
+    LivroModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

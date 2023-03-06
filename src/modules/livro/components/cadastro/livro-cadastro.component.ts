@@ -23,6 +23,8 @@ export class LivroCadastroComponent implements OnInit {
     publicacao: '2000-01-01',
   });
 
+  edicao: boolean = false
+
   constructor(
     private formBuilder: FormBuilder,
     private livroService: LivroService,
@@ -32,7 +34,8 @@ export class LivroCadastroComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +this.activatedRoute.snapshot.params['id'];
-    console.log(id);
+    this.edicao = !!id;
+
     if (id) {
       this.livroService.getLivro(id).subscribe((livro) => {
         console.log(livro);
@@ -57,6 +60,6 @@ export class LivroCadastroComponent implements OnInit {
   }
 
   redirect() {
-    this.router.navigate(['/listagem']);
+    this.router.navigate(['livros', 'lista']);
   }
 }
